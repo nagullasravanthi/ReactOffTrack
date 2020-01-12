@@ -1,0 +1,33 @@
+dependencies: \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/FBSDKLoginKit/FBSDKLoginKit/FBSDKLoginKit/FBSDKDeviceLoginManagerResult.m \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Target\ Support\ Files/FBSDKLoginKit/FBSDKLoginKit-prefix.pch \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/FBSDKLoginKit/FBSDKLoginKit/FBSDKLoginKit/Internal/FBSDKDeviceLoginManagerResult+Internal.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKCoreKit.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKAccessToken.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKCopying.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKGraphRequestConnection.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKAppEvents.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKApplicationDelegate.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKButton.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKConstants.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKGraphRequest.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKGraphRequestDataAttachment.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKSettings.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKTestUsersManager.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKUtility.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKAppLink.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKAppLinkTarget.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKAppLinkNavigation.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKAppLinkResolving.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKAppLinkResolver.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKAppLinkReturnToRefererController.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKAppLinkReturnToRefererView.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKAppLinkUtility.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKGraphErrorRecoveryProcessor.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKMeasurementEvent.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKMutableCopying.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKProfile.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKProfilePictureView.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKURL.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/FBSDKCoreKit/FBSDKWebViewAppLinkResolver.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/FBSDKLoginKit/FBSDKLoginKit/FBSDKLoginKit/FBSDKDeviceLoginManagerResult.h

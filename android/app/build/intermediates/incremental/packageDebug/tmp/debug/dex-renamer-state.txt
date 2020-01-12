@@ -1,0 +1,4 @@
+#Sun Jan 12 17:47:12 IST 2020
+base.0=/Users/sravanthiboyina/Documents/ReactWS/OffTrack/android/app/build/intermediates/transforms/dexMerger/debug/0
+renamed.0=classes.dex
+path.0=classes.dex

@@ -1,0 +1,34 @@
+dependencies: \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/GTMAppAuth/Source/GTMOAuth2KeychainCompatibility/GTMOAuth2KeychainCompatibility.m \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Target\ Support\ Files/GTMAppAuth/GTMAppAuth-prefix.pch \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/GTMAppAuth/Source/GTMOAuth2KeychainCompatibility/GTMOAuth2KeychainCompatibility.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/GTMAppAuth/Source/GTMAppAuthFetcherAuthorization.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/GTMSessionFetcher/GTMSessionFetcher.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/AppAuthCore.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/OIDAuthState.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/OIDAuthStateChangeDelegate.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/OIDAuthStateErrorDelegate.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/OIDAuthorizationRequest.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/OIDExternalUserAgentRequest.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/OIDResponseTypes.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/OIDScopes.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/OIDAuthorizationResponse.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/OIDAuthorizationService.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/OIDError.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/OIDErrorUtilities.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/OIDExternalUserAgent.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/OIDExternalUserAgentSession.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/OIDGrantTypes.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/OIDIDToken.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/OIDRegistrationRequest.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/OIDRegistrationResponse.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/OIDScopeUtilities.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/OIDServiceConfiguration.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/OIDServiceDiscovery.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/OIDTokenRequest.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/OIDTokenResponse.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/OIDTokenUtilities.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/OIDURLSessionProvider.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/OIDEndSessionRequest.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/Headers/Private/AppAuth/OIDEndSessionResponse.h \
+  /Users/sravanthiboyina/Documents/ReactWS/OffTrack/ios/Pods/GTMAppAuth/Source/GTMKeychain.h

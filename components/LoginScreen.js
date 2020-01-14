@@ -3,7 +3,7 @@ import {
 	SafeAreaView, StyleSheet, ScrollView, View, Text,
 	StatusBar, Button, Image, ImageBackground, Dimensions, TouchableHighlight, Platform, TouchableOpacity
 } from 'react-native';
-import { LoginButton, AccessToken } from 'react-native-fbsdk';
+import { LoginButton, AccessToken, LoginManager } from 'react-native-fbsdk';
 import Colors from '../constants/Colors.js'
 import { GoogleSignin, GoogleSigninButton, statusCodes } from 'react-native-google-signin';
 export default class LoginScreen extends Component {
@@ -12,6 +12,9 @@ export default class LoginScreen extends Component {
 		this.state = {
 			pushData: [],
 			loggedIn: false,
+			facebookLoginInfo: null,
+			userID: "",
+			showDefaultLoginButton: false,
 			//Gmail
 			userInfo: null,
 			gettingLoginStatus: true
@@ -45,14 +48,15 @@ export default class LoginScreen extends Component {
 	_getCurrentUserInfo = async () => {
 		try {
 			const userInfo = await GoogleSignin.signInSilently();
-			console.log('User Info --> ', userInfo);
+			//console.log('User Info --> ', userInfo);
 			this.setState({ userInfo: userInfo });
+			this._sendDetailsToServer(true);
 		} catch (error) {
 			if (error.code === statusCodes.SIGN_IN_REQUIRED) {
 				alert('User has not signed in yet');
 				console.log('User has not signed in yet');
 			} else {
-				alert("Something went wrong. Unable to get user's info");
+				alert("Something went wrong. Unab le to get user's info");
 				console.log("Something went wrong. Unable to get user's info");
 			}
 		}
@@ -67,9 +71,9 @@ export default class LoginScreen extends Component {
 				showPlayServicesUpdateDialog: true
 			});
 			const userInfo = await GoogleSignin.signIn();
-			console.log('User Info --> ', userInfo);
+			//	console.log('User Info --> ', userInfo);
 			this.setState({ userInfo: userInfo });
-			_sendDetailsToServer(true);
+			this._sendDetailsToServer(true);
 		} catch (error) {
 			console.log('Message', error.message);
 			if (error.code === statusCodes.SIGN_IN_CANCELLED) {
@@ -85,7 +89,18 @@ export default class LoginScreen extends Component {
 	};
 
 	_sendDetailsToServer = async (isGoogleLogin) => {
-		Console.log(userInfo);
+		if (isGoogleLogin)
+			console.log('User Info sravs--> ', this.state.userInfo);
+		//else console.log("fb id");
+		else console.log("fb id", this.state.facebookLoginInfo);
+		console.log(JSON.stringify({
+			first_name: 'yourValue',
+			last_name: 'yourOtherValue',
+			phone_no: 'yourOtherValue',
+			Country: 'yourOtherValue',
+			google_token: 'yourOtherValue',
+			facebook_token: 'yourOtherValue',
+		}));
 		fetch('http://52.17.234.14:8022/api/Register', {
 			method: 'PUT',
 			headers: {
@@ -95,14 +110,16 @@ export default class LoginScreen extends Component {
 			body: JSON.stringify({
 				first_name: 'yourValue',
 				last_name: 'yourOtherValue',
-				phone_no: 'yourOtherValue',
+				phone_no: 7876876876,
 				Country: 'yourOtherValue',
 				google_token: 'yourOtherValue',
 				facebook_token: 'yourOtherValue',
 			}),
+
 		}).then((response) => response.json())
 			.then((responseJson) => {
-				return responseJson.movies;
+				console.log("Response", responseJson);
+				//return responseJson.movies;
 			})
 			.catch((error) => {
 				console.error(error);
@@ -119,6 +136,30 @@ export default class LoginScreen extends Component {
 			console.error(error);
 		}
 	};
+	handleFacebookLogin = async () => {
+		LoginManager.logInWithPermissions(['public_profile']).then(
+			(result) => {
+				if (result.isCancelled) {
+					console.log('Login cancelled')
+				} else {
+					console.log('Login success with permissions: ' + JSON.stringify(result));
+
+					AccessToken.getCurrentAccessToken().then((data) => {
+						//console.log("data is ", data);
+						this.setState({
+							loggedIn: true,
+							userID: data.userID,
+							facebookLoginInfo: data,
+						});
+						this._sendDetailsToServer(false);
+					});
+				}
+			},
+			(error) => {
+				console.log('Login fail with error: ' + error)
+			}
+		)
+	}
 	render() {
 		return (
 			<Fragment>
@@ -141,37 +182,13 @@ export default class LoginScreen extends Component {
 								<Image
 									style={styles.logo}
 									source={require('../assets/Login/lovebird.png')} />
-
 								<Text style={styles.title}>OffTrack</Text>
 
 								<Text style={styles.signin}>Sign in with</Text>
 
 								<View style={styles.sectionContainer}>
-									<TouchableOpacity onLoginFinished={(error, result) => {
-										if (error) {
-											console.log('login has error: ' + result.error);
-										} else if (result.isCancelled) {
-											console.log('login is cancelled.');
-										} else {
-											console.log(result);
-											AccessToken.getCurrentAccessToken().then((data) => {
-												this.setState({
-													loggedIn: true,
-													userID: data.userID
-												});
-												console.log(data, data.accessToken.toString());
-											});
-										}
-									}}
-										onLogoutFinished={() =>
-											this.setState({
-												loggedIn: false,
-												userID: ''
-											})}>
-										<Image
-											style={styles.image}
-											resizeMode={'contain'}
-											source={require('../assets/Login/fb.png')} />
+									<TouchableOpacity onPress={() => { this.handleFacebookLogin() }}>
+										<Image style={styles.image} source={require('../assets/Login/fb.png')} />
 									</TouchableOpacity>
 									<View style={styles.line} />
 									<TouchableOpacity onPress={() => { this._signIn() }}>

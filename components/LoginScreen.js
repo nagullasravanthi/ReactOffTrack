@@ -1,10 +1,22 @@
 import React, { Component, Fragment } from 'react';
 import {
-	SafeAreaView, StyleSheet, ScrollView, View, Text,
-	StatusBar, Button, Image, ImageBackground, Dimensions, TouchableHighlight, Platform, TouchableOpacity
+	SafeAreaView,
+	StyleSheet,
+	ScrollView,
+	View,
+	Text,
+	StatusBar,
+	Button,
+	Image,
+	ImageBackground,
+	Dimensions,
+	TouchableHighlight,
+	Platform,
+	TouchableOpacity
 } from 'react-native';
+import Toast from 'react-native-simple-toast';
 import { LoginButton, AccessToken, LoginManager } from 'react-native-fbsdk';
-import Colors from '../constants/Colors.js'
+import Colors from '../constants/Colors.js';
 import { GoogleSignin, GoogleSigninButton, statusCodes } from 'react-native-google-signin';
 export default class LoginScreen extends Component {
 	constructor(props) {
@@ -13,7 +25,7 @@ export default class LoginScreen extends Component {
 			pushData: [],
 			loggedIn: false,
 			facebookLoginInfo: null,
-			userID: "",
+			userID: '',
 			showDefaultLoginButton: false,
 			//Gmail
 			userInfo: null,
@@ -24,7 +36,7 @@ export default class LoginScreen extends Component {
 		//initial configuration
 		GoogleSignin.configure({
 			//It is mandatory to call this method before attempting to call signIn()
-			scopes: ['https://www.googleapis.com/auth/drive.readonly'],
+			scopes: [ 'https://www.googleapis.com/auth/drive.readonly' ],
 			// Repleace with your webClientId generated from Firebase console
 			webClientId: '428166041313-nfb3l5v7ba1ecgk1eio1iop5sj5a9uie.apps.googleusercontent.com',
 			iosClientId: '428166041313-0p7l7gcan3rarj74ngnc3njpgvv4rrf8.apps.googleusercontent.com'
@@ -35,7 +47,7 @@ export default class LoginScreen extends Component {
 	_isSignedIn = async () => {
 		const isSignedIn = await GoogleSignin.isSignedIn();
 		if (isSignedIn) {
-			alert('User is already signed in');
+			Toast.show('Google:User is already signed in');
 			//Get the User details as user is already signed in
 			this._getCurrentUserInfo();
 		} else {
@@ -89,23 +101,27 @@ export default class LoginScreen extends Component {
 	};
 
 	_sendDetailsToServer = async (isGoogleLogin) => {
-		if (isGoogleLogin)
+		if (isGoogleLogin) {
+			if (this.state.userInfo != null) Toast.show('Google Access Token' + this.state.userInfo, Toast.LONG);
 			console.log('User Info sravs--> ', this.state.userInfo);
-		//else console.log("fb id");
-		else console.log("fb id", this.state.facebookLoginInfo);
-		console.log(JSON.stringify({
-			first_name: 'yourValue',
-			last_name: 'yourOtherValue',
-			phone_no: 'yourOtherValue',
-			Country: 'yourOtherValue',
-			google_token: 'yourOtherValue',
-			facebook_token: 'yourOtherValue',
-		}));
+		} else
+			//else console.log("fb id");
+			console.log('fb id', this.state.facebookLoginInfo);
+		console.log(
+			JSON.stringify({
+				first_name: 'yourValue',
+				last_name: 'yourOtherValue',
+				phone_no: 'yourOtherValue',
+				Country: 'yourOtherValue',
+				google_token: 'yourOtherValue',
+				facebook_token: 'yourOtherValue'
+			})
+		);
 		fetch('http://52.17.234.14:8022/api/Register', {
 			method: 'PUT',
 			headers: {
 				Accept: 'application/json',
-				'Content-Type': 'application/json',
+				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({
 				first_name: 'yourValue',
@@ -113,18 +129,18 @@ export default class LoginScreen extends Component {
 				phone_no: 7876876876,
 				Country: 'yourOtherValue',
 				google_token: 'yourOtherValue',
-				facebook_token: 'yourOtherValue',
-			}),
-
-		}).then((response) => response.json())
+				facebook_token: 'yourOtherValue'
+			})
+		})
+			.then((response) => response.json())
 			.then((responseJson) => {
-				console.log("Response", responseJson);
+				console.log('Response', responseJson);
 				//return responseJson.movies;
 			})
 			.catch((error) => {
 				console.error(error);
 			});
-	}
+	};
 
 	_signOut = async () => {
 		//Remove user session from the device.
@@ -137,10 +153,10 @@ export default class LoginScreen extends Component {
 		}
 	};
 	handleFacebookLogin = async () => {
-		LoginManager.logInWithPermissions(['public_profile']).then(
+		LoginManager.logInWithPermissions([ 'public_profile' ]).then(
 			(result) => {
 				if (result.isCancelled) {
-					console.log('Login cancelled')
+					console.log('Login cancelled');
 				} else {
 					console.log('Login success with permissions: ' + JSON.stringify(result));
 
@@ -149,17 +165,22 @@ export default class LoginScreen extends Component {
 						this.setState({
 							loggedIn: true,
 							userID: data.userID,
-							facebookLoginInfo: data,
+							facebookLoginInfo: data
 						});
+						if (data != null)
+							Toast.show(
+								'Facebook Access Token' + data.userID + ',' + data.accessToken.toString(),
+								Toast.LONG
+							);
 						this._sendDetailsToServer(false);
 					});
 				}
 			},
 			(error) => {
-				console.log('Login fail with error: ' + error)
+				console.log('Login fail with error: ' + error);
 			}
-		)
-	}
+		);
+	};
 	render() {
 		return (
 			<Fragment>
@@ -169,8 +190,11 @@ export default class LoginScreen extends Component {
 					//source={{ uri: 'https://wallpapershome.com/images/pages/pic_v/3443.jpg' }}
 					style={{
 						height: Dimensions.get('window').height,
-						width: Dimensions.get('window').width, overflow: 'hidden', flex: 1,
-					}}>
+						width: Dimensions.get('window').width,
+						overflow: 'hidden',
+						flex: 1
+					}}
+				>
 					<SafeAreaView style={styles.container}>
 						<ScrollView style={styles.scrollView}>
 							{global.HermesInternal == null ? null : (
@@ -179,20 +203,26 @@ export default class LoginScreen extends Component {
 								</View>
 							)}
 							<View style={styles.content}>
-								<Image
-									style={styles.logo}
-									source={require('../assets/Login/lovebird.png')} />
+								<Image style={styles.logo} source={require('../assets/Login/lovebird.png')} />
 								<Text style={styles.title}>OffTrack</Text>
 
 								<Text style={styles.signin}>Sign in with</Text>
 
 								<View style={styles.sectionContainer}>
-									<TouchableOpacity onPress={() => { this.handleFacebookLogin() }}>
-										<Image style={styles.image} source={require('../assets/Login/fb.png')} />
+									<TouchableOpacity
+										onPress={() => {
+											this.handleFacebookLogin();
+										}}
+									>
+										<Image style={styles.image} source={require('../assets/Login/fb2.png')} />
 									</TouchableOpacity>
-									<View style={styles.line} />
-									<TouchableOpacity onPress={() => { this._signIn() }}>
-										<Image style={styles.image} source={require('../assets/Login/googleplus.png')} />
+
+									<TouchableOpacity
+										onPress={() => {
+											this._signIn();
+										}}
+									>
+										<Image style={styles.image} source={require('../assets/Login/google.png')} />
 									</TouchableOpacity>
 								</View>
 								<Text style={styles.signin}>Or</Text>
@@ -201,8 +231,7 @@ export default class LoginScreen extends Component {
 						</ScrollView>
 					</SafeAreaView>
 				</ImageBackground>
-			</Fragment >
-
+			</Fragment>
 		);
 	}
 }
@@ -212,14 +241,14 @@ const styles = StyleSheet.create({
 		//backgroundColor: '',
 		alignItems: 'center',
 		flex: 1,
-		width: "100%",
-		height: "100%",
+		width: '100%',
+		height: '100%',
 		justifyContent: 'center'
 	},
 
 	content: {
-		justifyContent: "center",
-		alignItems: "center",
+		justifyContent: 'center',
+		alignItems: 'center'
 	},
 
 	line: {
@@ -231,7 +260,7 @@ const styles = StyleSheet.create({
 	logo: {
 		//tintColor: Colors.primary,
 		marginTop: 10,
-		marginBottom: 10,
+		marginBottom: 10
 	},
 	signin: {
 		marginTop: 20,
@@ -244,12 +273,12 @@ const styles = StyleSheet.create({
 		justifyContent: 'center'
 	},
 	image: {
-		margin: 10,
+		margin: 10
 		//tintColor: "red",
 	},
 	title: {
 		fontSize: 22,
 		fontWeight: 'bold',
-		marginBottom: 50,
+		marginBottom: 50
 	}
 });

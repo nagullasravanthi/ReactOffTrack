@@ -28,6 +28,9 @@ project.xcworkspace
 /RNTester/android/app/gradlew
 /RNTester/android/app/gradlew.bat
 /ReactAndroid/build/
+/android/build/
+/android/.gradle/
+/android/app/build/
 
 # Buck
 .buckd

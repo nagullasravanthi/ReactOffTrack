@@ -18,7 +18,7 @@ export default class LoginController extends Component {
 		//initial configuration
 		GoogleSignin.configure({
 			//It is mandatory to call this method before attempting to call signIn()
-			scopes: [ 'https://www.googleapis.com/auth/drive.readonly' ],
+			scopes: ['https://www.googleapis.com/auth/drive.readonly'],
 			// Repleace with your webClientId generated from Firebase console
 			webClientId: '428166041313-nfb3l5v7ba1ecgk1eio1iop5sj5a9uie.apps.googleusercontent.com',
 			iosClientId: '428166041313-0p7l7gcan3rarj74ngnc3njpgvv4rrf8.apps.googleusercontent.com'

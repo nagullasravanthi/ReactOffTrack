@@ -38,8 +38,6 @@ target 'OffTrack' do
 
   pod 'RNGoogleSignin', :path => '../node_modules/react-native-google-signin'
 
-  pod 'react-native-simple-toast', :path => '../node_modules/react-native-simple-toast'
-
   target 'OffTrackTests' do
     inherit! :search_paths
     # Pods for testing
